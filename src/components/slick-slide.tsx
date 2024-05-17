@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import './slick-slide.css';
-import cn from "classnames";
 
 // Жестко заданные пути к изображениям иконок, фонов и продуктов
-import caseWhiteImg from "../assets/img/case-white.png";
-import caseBlackImg from "../assets/img/case-black.png";
 import bgIllustrationBlack from "../assets/img/main-page-bgi-1.svg";
 import bgIllustrationWhite from "../assets/img/main-page-bgi-2.svg";
 import arrowIcon from "../assets/img/arrow-right.svg";
 import arrowIconWhite from "../assets/img/arrow-right-white.svg";
+import logo from "../assets/img/img.png";
 
 // Импортируем компонент кнопки
 import Button from './button';
@@ -58,7 +56,7 @@ const Slide = ({ variant, link }: Props) => {
                     </div>
 
                     <div className="item2">
-                    <img className="imm" src="/public/img.png" alt=""/>
+                    <img className="imm" src={logo} alt=""/>
                     </div>
                 </div>
             </div>
