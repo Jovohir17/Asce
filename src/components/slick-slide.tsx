@@ -49,7 +49,7 @@ const Slide = ({ variant, link }: Props) => {
                         <div className="center">
                             <Button variant={variant === "black" ? "white" : "black"}
                                     className={`slide__link ${variant}`}
-                                    onClick={() => scrollTo("goods")}>
+                                    >
                                 Приобрести{" "}
                                 <img src={variant === "black" ? arrowIcon : arrowIconWhite}
                                      className=""/>
