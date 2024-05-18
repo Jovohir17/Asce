@@ -6,8 +6,12 @@ import bgIllustrationBlack from "../assets/img/main-page-bgi-1.svg";
 import bgIllustrationWhite from "../assets/img/main-page-bgi-2.svg";
 import arrowIcon from "../assets/img/arrow-right.svg";
 import arrowIconWhite from "../assets/img/arrow-right-white.svg";
+<<<<<<< HEAD
 import logoBlack from "../assets/img/img_black.png";
 import logoWhite from "../assets/img/img_white.png";
+=======
+import logo from "../assets/img/img.png";
+>>>>>>> main
 
 // Импортируем компонент кнопки
 import Button from './button';
@@ -45,10 +49,16 @@ const Slide = ({ variant, link }: Props) => {
                         </div>
 
                         <div className="center">
+<<<<<<< HEAD
                             <Button
                                 variant={variant === "black" ? "white" : "black"}
                                 className={`slide__link ${variant}`}
                             >
+=======
+                            <Button variant={variant === "black" ? "white" : "black"}
+                                    className={`slide__link ${variant}`}
+                                    >
+>>>>>>> main
                                 Приобрести{" "}
                                 <img src={variant === "black" ? arrowIcon : arrowIconWhite} className="slide__link-arrow"/>
                             </Button>
@@ -56,7 +66,11 @@ const Slide = ({ variant, link }: Props) => {
                     </div>
 
                     <div className="item2">
+<<<<<<< HEAD
                         <img className="imm" src={variant === "black" ? logoBlack : logoWhite} alt=""/>
+=======
+                    <img className="imm" src={logo} alt=""/>
+>>>>>>> main
                     </div>
                 </div>
             </div>
