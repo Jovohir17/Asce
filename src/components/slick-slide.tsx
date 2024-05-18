@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './slick-slide.css';
 
-// Жестко заданные пути к изображениям иконок, фонов и продуктов
 import bgIllustrationBlack from "../assets/img/main-page-bgi-1.svg";
 import bgIllustrationWhite from "../assets/img/main-page-bgi-2.svg";
 import arrowIcon from "../assets/img/arrow-right.svg";
@@ -9,22 +8,21 @@ import arrowIconWhite from "../assets/img/arrow-right-white.svg";
 import logoBlack from "../assets/img/img_black.png";
 import logoWhite from "../assets/img/img_white.png";
 
-// Импортируем компонент кнопки
 import Button from './button';
 
-// Определяем тип Props для компонента Slide
 type Props = {
-    variant: "black" | "white"; // Вариант слайда может быть "black" или "white"
-    link: string; // Ссылка для кнопки на слайде
+    variant: "black" | "white";
+    link: string;
 };
 
-// Основной компонент Slide
 const Slide = ({ variant, link }: Props) => {
-    // Состояние для отображения индикатора загрузки изображения
     const [wait, setWait] = useState(true);
 
+    // Define a class name based on the wait state
+    const waitClass = wait ? 'waiting' : '';
+
     return (
-        <div className={`slide ${variant} ${wait}`}>
+        <div className={`slide ${variant} ${waitClass}`}>
             <img src={variant === "black" ? bgIllustrationBlack : bgIllustrationWhite} alt="" className="slide__illustration" />
 
             <div className="center1">

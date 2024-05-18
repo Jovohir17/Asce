@@ -5,20 +5,21 @@ import "./goods.section.css";
 import arrowDown from "../../assets/img/arrow-down.svg";
 import Button from "../button";
 
-import arrowIcon from "../../assets/img/arrow-right-white.svg";
-import shop from "../../assets/img/shop.svg";
+import arrowIcon from "../../assets/img/arrow-right.svg";
+import arrowIconWhite from "../assets/img/arrow-right-white.svg";
 import iconAppleWhite from "../../assets/img/apple-white.svg";
 import iconAppleBlack from "../../assets/img/apple-black.svg";
 import dressWhite from "../../assets/img/dresswhite.svg";
 import dressBlack from "../../assets/img/dressblack.svg";
 import clothes from "../../assets/img/img.png";
-import clothes1 from "../../assets/img/img_1.png";
 import { scrollTo, useOnScreen } from "../../tools";
 import classNames from "classnames";
 import { useGetProductsQuery } from "../../redux/products.api";
+import { TDevice } from "../../types";
 import Loader from "../loader";
 
 const GoodsSection = () => {
+  const [currentModel, setCurrentModel] = useState<TDevice>("AirPods 3");
   const [activeButton, setActiveButton] = useState<string>("all");
 
   const goodsRef = useRef(null);
@@ -37,17 +38,16 @@ const GoodsSection = () => {
     }
   };
 
-  const handleButtonChange = (button: string) => {
+  const handleModelChange = (model: TDevice, button: string) => {
+    setCurrentModel(model);
     setActiveButton(button);
   };
 
-  const filteredProducts = products
-      ? products.filter((el) => {
-        if (activeButton === "all") return true;
-        if (activeButton === "accessories" && el.type === "case") return true;
-        if (activeButton === "clothes" && el.type === "clothes") return true;
-        return false;
-      })
+  const filtered = products
+      ? products
+          .filter((el) => el.device === currentModel)
+          //@ts-ignore
+          .sort((a, b) => a.in_development - b.in_development)
       : [];
 
   return (
@@ -61,17 +61,20 @@ const GoodsSection = () => {
             <Button
                 className="goods__switch switch"
                 variant={activeButton === "all" ? "black" : "white"}
-                onClick={() => handleButtonChange("all")}
+                onClick={() => handleModelChange("AirPods 3", "all")}
             >
               Все
             </Button>
+
             <Button
                 className="goods__switch switch"
                 variant={activeButton === "accessories" ? "black" : "white"}
-                onClick={() => handleButtonChange("accessories")}
+                onClick={() => handleModelChange("AirPods 3", "accessories")}
             >
               <img
-                  src={activeButton === "accessories" ? iconAppleWhite : iconAppleBlack}
+                  src={
+                    activeButton === "accessories" ? iconAppleWhite : iconAppleBlack
+                  }
                   alt="Apple Icon"
               />
               Аксессуары
@@ -79,10 +82,12 @@ const GoodsSection = () => {
             <Button
                 className="goods__switch switch"
                 variant={activeButton === "clothes" ? "black" : "white"}
-                onClick={() => handleButtonChange("clothes")}
+                onClick={() => handleModelChange("AirPods Pro", "clothes")}
             >
               <img
-                  src={activeButton === "clothes" ? dressWhite : dressBlack}
+                  src={
+                    activeButton === "clothes" ? dressWhite : dressBlack
+                  }
                   alt="Dress Icon"
               />
               Одежда
@@ -94,10 +99,10 @@ const GoodsSection = () => {
           >
             {!!products && !isLoading && (
                 <>
-                  {filteredProducts.map((el, i) =>
+                  {filtered.map((el, i) =>
                       i < 4 ? <ItemCard key={el.id} {...el} animationDelay={i * 80} /> : null
                   )}
-                  {filteredProducts.map((el, i) =>
+                  {filtered.map((el, i) =>
                       opened && i >= 4 ? (
                           <ItemCard key={el.id} {...el} animationDelay={i * 80} />
                       ) : null
@@ -105,77 +110,20 @@ const GoodsSection = () => {
                 </>
             )}
           </div>
-          <div className="dff">
-            {activeButton === "accessories" && (
-                <div className="case">
-                  <div className="centerr">
-                    <div className="img">
-                      <div className="centerr">
-                        <img className="immss" src={clothes1} alt="Case" />
-                      </div>
-                      <div className="centerr">
-                        <h2 className="h2hh">Mythical Case</h2>
-                      </div>
-                      <div className="centerr">
-                        <button className="but">
-                          <img src={shop} alt="" />
-                          Color Red
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="centerr">
-                    <h3 className="h3h">1.500₽</h3>
-                  </div>
-                  <div className="centerr">
-                    <Button className="bot">
-                      Приобрести
-                      <img src={arrowIcon} className="slide__link-arrow" />
-                    </Button>
-                  </div>
-                </div>
-            )}
+          <div className="df">
 
-            {activeButton === "clothes" && (
-                <div className="clothes">
-                  <div className="centerr">
-                    <div className="img">
-                      <div className="centerr">
-                        <img className="imms" src={clothes} alt="Clothes" />
-                      </div>
-                      <div className="centerr">
-                        <h2 className="h2h">Футболка Asce</h2>
-                      </div>
-                      <div className="centerr">
-                        <button className="but">
-                          <img src={shop} alt="" />
-                          Color Black
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="centerr">
-                    <h3 className="h3h">2.500₽</h3>
-                  </div>
-                  <div className="centerr">
-                    <Button className="bot">
-                      Приобрести
-                      <img src={arrowIcon} className="slide__link-arrow" />
-                    </Button>
-                  </div>
-                </div>
-            )}
           </div>
+
           {isLoading && <Loader />}
 
-          {filteredProducts.length > 4 && (
+          {filtered.length > 4 && (
               <Button
                   variant="white"
                   onClick={handleClick}
                   className={classNames("goods__button", { opened })}
               >
                 К полному каталогу{" "}
-                <img src={arrowDown} className="goods__button-icon" alt="Arrow Down"/>
+                <img src={arrowDown} className="goods__button-icon" alt="Arrow Down" />
               </Button>
           )}
         </div>
