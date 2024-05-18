@@ -28,7 +28,6 @@
 .goods__top {
   display: flex;
   justify-content: center;
-  margin-bottom: 63px;
   gap: 10px;
   align-items: center;
   transition: .3s;
@@ -71,6 +70,8 @@
 }
 
 @media (max-width: 1439px) {
+
+
   .goods {
     z-index: 2;
     position: relative;
@@ -84,6 +85,7 @@
   }
 
   .goods__top {
+    margin-bottom: 0;
     flex-wrap: wrap;
   }
   .goods__title {
@@ -100,3 +102,104 @@
 
   
 }
+
+.df{
+  justify-content: center;
+  display: flex;
+}
+
+.clothes{
+  width: 265px;
+  box-sizing: border-box;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 60px;
+  width: 265px;
+  height: 443px;
+}
+
+.imms{
+  width: 201px;
+  height: 190px;
+}
+
+.img{
+  margin-top: 7px;
+  width: 251px;
+  height: 284px;
+  border-radius: 53px 53px 21px 21px;
+
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.h2h{
+  background: linear-gradient(169.22deg, rgb(0, 0, 0),rgb(255, 255, 255));
+  -webkit-background-clip:
+          text;
+  -webkit-text-fill-color:
+          transparent;
+  background-clip:
+          text;
+  text-fill-color:
+          transparent;
+  font-family: Mazzard;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 100%;
+  text-align: center;
+}
+
+.but{
+  color: rgb(0, 0, 0);
+  font-family: Manrope;
+  font-size: 16px;
+  font-weight: 800;
+  text-align: left;
+  gap: 4px;
+  /* Приобрести */
+  margin-top: 10px;
+  width: 141px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 18px 13px 18px;
+  border-radius: 32px;
+  background: rgb(255, 255, 255);
+  border: 0;
+}
+
+.centerr{
+  justify-content: center;
+  display: flex;
+}
+
+.h3h{
+  margin-top: 19px;
+  width: 100%;
+  background: linear-gradient(169.22deg, rgb(0, 0, 0),rgb(255, 255, 255));
+  -webkit-background-clip:
+          text;
+  -webkit-text-fill-color:
+          transparent;
+  background-clip:
+          text;
+  text-fill-color:
+          transparent;
+  font-family: Manrope;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 100%;
+  text-align: center;
+}
+
+.bot{
+  margin-top: 14px;
+  margin-top: 14px;
+  width: 177px;
+  height: 63px;
+  border-radius: 32px;
+  color: white;
+  background: rgb(0, 0, 0);
+
+}
+
