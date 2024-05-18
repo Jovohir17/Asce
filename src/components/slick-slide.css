@@ -28,7 +28,7 @@
 }
 
 .slide__illustration {
-  width: 83%;
+  width: 60%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -39,6 +39,7 @@
   width: 387px;
   position: relative;
 }
+
 
 .slide__image-container {
   margin-bottom: 56px;

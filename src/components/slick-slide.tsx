@@ -28,7 +28,7 @@ const Slide = ({ variant, link }: Props) => {
             <img src={variant === "black" ? bgIllustrationBlack : bgIllustrationWhite} alt="" className="slide__illustration" />
 
             <div className="center1">
-                <div className="df">
+                <div className="dfff">
                     <div className="item1">
                         <div className="center">
                             <h2 className={`h2 ${variant === "white" ? "text-black" : "text-white"}`}>
