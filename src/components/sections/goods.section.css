@@ -97,7 +97,7 @@
 @media (min-width: 1539px) {
   .dfff {
     display: flex;
-    gap: 270px;
+    gap: 423px;
   }
 }
 
@@ -263,4 +263,3 @@
   line-height: 100%;
   text-align: center;
 }
-

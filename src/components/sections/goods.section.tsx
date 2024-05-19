@@ -18,13 +18,16 @@ import classNames from "classnames";
 import { useGetProductsQuery } from "../../redux/products.api";
 import Loader from "../loader";
 
-// Define the TProduct type with the type property
+
+
+
 type TProduct = {
   id: string;
   name: string;
   price: number;
   type: string; // Add this line
 };
+
 
 const GoodsSection = () => {
   const [activeButton, setActiveButton] = useState<string>("all");
@@ -56,11 +59,13 @@ const GoodsSection = () => {
       })
       : [];
 
+
+
   return (
       <section className={"goods"} id="goods">
         <div className={"wrapper goods__wrapper"}>
           <div
-              className={classNames("goods__top", { refHidden: !titleSeen })}
+              className={classNames("goods__top", {refHidden: !titleSeen})}
               ref={titleRef}
           >
             <h2 className="goods__title">Ассортимент</h2>
@@ -95,17 +100,17 @@ const GoodsSection = () => {
             </Button>
           </div>
           <div
-              className={classNames("goods__list", { refHidden: !goodsSeen })}
+              className={classNames("goods__list", {refHidden: !goodsSeen})}
               ref={goodsRef}
           >
             {!!products && !isLoading && (
                 <>
                   {filteredProducts.map((el, i) =>
-                      i < 4 ? <ItemCard key={el.id} {...el} animationDelay={i * 80} /> : null
+                      i < 4 ? <ItemCard key={el.id} {...el} animationDelay={i * 80}/> : null
                   )}
                   {filteredProducts.map((el, i) =>
                       opened && i >= 4 ? (
-                          <ItemCard key={el.id} {...el} animationDelay={i * 80} />
+                          <ItemCard key={el.id} {...el} animationDelay={i * 80}/>
                       ) : null
                   )}
                 </>
@@ -113,18 +118,19 @@ const GoodsSection = () => {
           </div>
           <div className="dff">
             {activeButton === "accessories" && (
-                <div className="case">
+                <a href="#">
+                    <div className="case">
                   <div className="centerr">
                     <div className="img">
                       <div className="centerr">
-                        <img className="immss" src={clothes1} alt="Case" />
+                        <img className="immss" src={clothes1} alt="Case"/>
                       </div>
                       <div className="centerr">
                         <h2 className="h2hh">Mythical Case</h2>
                       </div>
                       <div className="centerr">
                         <button className="but">
-                          <img src={shop} alt="" />
+                          <img src={shop} alt=""/>
                           Color Red
                         </button>
                       </div>
@@ -136,25 +142,28 @@ const GoodsSection = () => {
                   <div className="centerr">
                     <Button className="bot" variant="black">
                       Приобрести
-                      <img src={arrowIcon} className="slide__link-arrow" />
+                      <img src={arrowIcon} className="slide__link-arrow"/>
                     </Button>
                   </div>
                 </div>
+                </a>
             )}
 
             {activeButton === "clothes" && (
-                <div className="clothes">
+                <a href="#">
+                   <div className="clothes">
+
                   <div className="centerr">
                     <div className="img">
                       <div className="centerr">
-                        <img className="imms" src={clothes} alt="Clothes" />
+                        <img className="imms" src={clothes} alt="Clothes"/>
                       </div>
                       <div className="centerr">
                         <h2 className="h2h">Футболка Asce</h2>
                       </div>
                       <div className="centerr">
                         <button className="but">
-                          <img src={shop} alt="" />
+                          <img src={shop} alt=""/>
                           Color Black
                         </button>
                       </div>
@@ -166,19 +175,20 @@ const GoodsSection = () => {
                   <div className="centerr">
                     <Button className="bot" variant="black">
                       Приобрести
-                      <img src={arrowIcon} className="slide__link-arrow" />
+                      <img src={arrowIcon} className="slide__link-arrow"/>
                     </Button>
                   </div>
                 </div>
+                </a>
             )}
           </div>
-          {isLoading && <Loader />}
+          {isLoading && <Loader/>}
 
           {filteredProducts.length > 4 && (
               <Button
                   variant="white"
                   onClick={handleClick}
-                  className={classNames("goods__button", { opened })}
+                  className={classNames("goods__button", {opened})}
               >
                 К полному каталогу
                 <img src={arrowDown} className="goods__button-icon" alt="Arrow Down"/>
@@ -188,5 +198,6 @@ const GoodsSection = () => {
       </section>
   );
 };
+
 
 export default GoodsSection;

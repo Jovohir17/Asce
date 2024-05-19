@@ -38,7 +38,7 @@ const Slide = ({ variant, link }: Props) => {
 
                         <div className="center">
                             <h3 className={variant === "white" ? "text-black" : "text-white"}>
-                                Меняем взгляд и отношение к street wear в России.
+                                Молодой русский street wear бренд в России.
                             </h3>
                         </div>
 

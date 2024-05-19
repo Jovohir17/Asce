@@ -96,6 +96,7 @@
   text-decoration: none;
   gap: 8px;
   margin-bottom: 20px;
+  font-weight: 800;
 }
 
 .slide__link.white {
@@ -247,7 +248,7 @@
   font-weight: 600;
   text-align: left;
   text-transform: uppercase;
-  width: 559px;
+  width: 563px;
 }
 
 h3{
@@ -285,6 +286,10 @@ h3{
   color: black;
 }
 
+.slide.white h3{
+  margin-top: 38px;
+}
+
 .slide.white .slide__link {
   background-color: black;
   color: white;
@@ -296,8 +301,21 @@ h3{
   color: white;
 }
 
+  .slide.black h3 {
+    color: #7f7f7f;
+    margin-top: 38px;
+  }
+
 .slide.black .slide__link {
   background-color: white;
   color: black;
 }
+}
+
+a{
+  text-decoration: none;
+}
+
+.slide__link-arrow{
+  margin-top: 2px;
 }
