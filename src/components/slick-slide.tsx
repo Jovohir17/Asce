@@ -32,13 +32,13 @@ const Slide = ({ variant, link }: Props) => {
                             <h2 className={`h2 ${variant === "white" ? "text-black" : "text-white"}`}>
                                 Одежда и
                                 аксессуары от
-                                ASCE APPAREL
+                                AŚCE APPAREL
                             </h2>
                         </div>
 
                         <div className="center">
                             <h3 className={variant === "white" ? "text-black" : "text-white"}>
-                                Молодой русский street wear бренд в России.
+                                Молодой street wear бренд в России.
                             </h3>
                         </div>
 
